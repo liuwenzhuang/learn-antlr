@@ -1,7 +1,8 @@
 {
   "name": "array-init",
   "version": "0.0.1",
-  "description": "Translator for array to unicode string",
+  "license": "MIT",
+  "description": "Learn antlr4 with jest.",
   "scripts": {
     "test": "jest",
     "generate": "node ./scripts/generate.js"
