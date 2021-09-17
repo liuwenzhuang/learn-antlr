@@ -5,7 +5,7 @@ import { JavaLexer } from '../../ANTLR/JavaLexer'
 import { CompilationUnitContext, JavaParser } from '../../ANTLR/JavaParser'
 import { GenInterfaceListener } from '../gen-interface-listener'
 
-function setup(text: string): [JavaParser, CompilationUnitContext] {
+export function setup(text: string): [JavaParser, CompilationUnitContext] {
   const charStream = CharStreams.fromString(text)
   const lexer = new JavaLexer(charStream)
   const tokenStream = new CommonTokenStream(lexer)
@@ -37,10 +37,7 @@ describe('gen interface listener', () => {
       }`
     )
     const listener = new GenInterfaceListener(parser)
-    walker.walk(
-      listener as ParseTreeListener,
-      parseTree
-    )
+    walker.walk(listener as ParseTreeListener, parseTree)
     expect(listener.getResult()).toBe(
       `import java.util.List;
 import java.util.Map;
